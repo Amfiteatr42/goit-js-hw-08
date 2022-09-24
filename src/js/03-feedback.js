@@ -16,18 +16,18 @@ form.addEventListener('input', throttle(onFormInput, 500));
 
 function onFormInput(e) {
   const formData = new FormData(form);
-  formData.forEach((value, x) => {
-    inputValues[x] = value;
+  formData.forEach((value, name) => {
+    inputValues[name] = value;
 
     save(STORAGE_KEY, inputValues);
   });
+  // or: someObject[e.target.name] = e.target.value //
 }
 
 form.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(e) {
   e.preventDefault();
-  // console.log(JSON.parse(localStorage.STORAGE_KEY));
   localStorage.removeItem(STORAGE_KEY);
   e.currentTarget.reset();
 }
