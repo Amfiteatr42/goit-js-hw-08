@@ -7,9 +7,9 @@ const inputMessage = document.querySelector('[name="message"]');
 const inputValues = {};
 const STORAGE_KEY = 'feedback-form-state';
 
-if (localStorage.getItem(STORAGE_KEY)) {
-  inputEmail.value = JSON.parse(localStorage.getItem(STORAGE_KEY)).email;
-  inputMessage.value = JSON.parse(localStorage.getItem(STORAGE_KEY)).message;
+if (load(STORAGE_KEY)) {
+  inputEmail.value = load(STORAGE_KEY).email;
+  inputMessage.value = load(STORAGE_KEY).message;
   // can use form.elements.email.value to reach inputEmail.value
 }
 
