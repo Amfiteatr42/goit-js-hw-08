@@ -8,11 +8,12 @@ const player = new Player(iframe);
 player.on('timeupdate', throttle(timeSaver, 1000));
 
 function timeSaver(data) {
-  console.log(data.seconds);
   save('videoplayer-current-time', data.seconds);
 }
 
-player.setCurrentTime(load('videoplayer-current-time'));
+if (localStorage.getItem('videoplayer-current-time')) {
+  player.setCurrentTime(load('videoplayer-current-time'));
+}
 
 player.getVideoTitle().then(function (title) {
   console.log('title:', title);

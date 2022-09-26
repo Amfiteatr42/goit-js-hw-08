@@ -7,7 +7,7 @@ import { galleryItems } from './gallery-items';
 const galleryRef = document.querySelector('.gallery');
 
 function markupMaker(galleryData) {
-  return galleryData
+  return `<ul style=" list-style: none; display: flex; flex-wrap: wrap; gap: 30px;">${galleryData
     .map(({ preview = '', original = '', description = '' } = {}) => {
       return `
     <li>
@@ -16,7 +16,7 @@ function markupMaker(galleryData) {
       </a>
     </li>`;
     })
-    .join('');
+    .join('')}</ul>`;
 }
 
 galleryRef.innerHTML = markupMaker(galleryItems);
