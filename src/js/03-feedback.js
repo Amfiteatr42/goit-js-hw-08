@@ -12,7 +12,6 @@ if (load(STORAGE_KEY)) {
   inputMessage.value = load(STORAGE_KEY).message;
   // can use form.elements.email.value to reach inputEmail.value
 }
-
 form.addEventListener('input', throttle(onFormInput, 500));
 
 function onFormInput(e) {
@@ -29,7 +28,7 @@ form.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(e) {
   e.preventDefault();
-  console.log(inputValues);
+  if (load(STORAGE_KEY)) console.log(load(STORAGE_KEY));
   localStorage.removeItem(STORAGE_KEY);
   e.currentTarget.reset();
 }

@@ -7,16 +7,14 @@ import { galleryItems } from './gallery-items';
 const galleryRef = document.querySelector('.gallery');
 
 function markupMaker(galleryData) {
-  return `<ul style=" list-style: none; display: flex; flex-wrap: wrap; gap: 30px;">${galleryData
+  return `${galleryData
     .map(({ preview = '', original = '', description = '' } = {}) => {
       return `
-    <li>
       <a class="gallery__item" href="${original}">
         <img class="gallery__image" src="${preview}" alt="${description}" />
-      </a>
-    </li>`;
+      </a>`;
     })
-    .join('')}</ul>`;
+    .join('')}`;
 }
 
 galleryRef.innerHTML = markupMaker(galleryItems);
